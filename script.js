@@ -47,3 +47,47 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('.fade-in-section').forEach(section => {
     observer.observe(section);
 });
+
+// AJAX Form Submission
+const contactForm = document.getElementById('contact-form');
+const submitBtn = document.getElementById('submit-btn');
+const successMsg = document.getElementById('form-success');
+const errorMsg = document.getElementById('form-error');
+
+if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        // Reset states
+        submitBtn.disabled = true;
+        submitBtn.querySelector('span').textContent = 'Enviando...';
+        successMsg.classList.add('hidden');
+        errorMsg.classList.add('hidden');
+
+        const formData = new FormData(contactForm);
+        const data = Object.fromEntries(formData.entries());
+
+        try {
+            const response = await fetch('https://formsubmit.co/ajax/newtonalbuquerqueadvocacia@gmail.com', {
+                method: 'POST',
+                headers: { 
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+
+            if (response.ok) {
+                successMsg.classList.remove('hidden');
+                contactForm.reset();
+            } else {
+                throw new Error();
+            }
+        } catch (err) {
+            errorMsg.classList.remove('hidden');
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.querySelector('span').textContent = 'Enviar Mensagem';
+        }
+    });
+}
