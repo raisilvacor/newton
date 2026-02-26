@@ -1,0 +1,80 @@
+{
+  "meta": {
+    "title": "Newton Albuquerque | Advocacia",
+    "favicon": "favicon.svg"
+  },
+  "navbar": {
+    "logo_text_1": "Newton",
+    "logo_text_2": "Albuquerque | Marcas e Patentes",
+    "logo_image": "img/logo2.png",
+    "links": [
+      { "text": "Início", "href": "#home" },
+      { "text": "Sobre", "href": "#about" },
+      { "text": "Áreas", "href": "#practice" }
+    ],
+    "cta": { "text": "Agendar Consulta", "href": "#contact" }
+  },
+  "hero": {
+    "subtitle": "Newton Albuquerque",
+    "title_part1": "Marcas & Patentes •",
+    "title_part2": "Advocacia",
+    "description": "Proteção jurídica para marcas, patentes e propriedade intelectual. Estratégia legal para o seu negócio.",
+    "cta_primary": { "text": "Falar com Advogado", "href": "#contact" },
+    "cta_secondary": { "text": "Nossas Áreas", "href": "#practice" }
+  },
+  "about": {
+    "title": "Sobre o Escritório",
+    "image": "img/newron.png",
+    "text_1": "Com mais de 15 anos de experiência, a <strong>Newton Albuquerque</strong> se consolidou como referência em advocacia estratégica. Nossa missão é oferecer soluções jurídicas inovadoras e personalizadas para cada cliente.",
+    "text_2": "Acreditamos que cada caso é único e merece uma atenção detalhada. Nossa equipe multidisciplinar atua com rigor técnico e ética inegociável para garantir a proteção dos seus interesses.",
+    "stats": [
+      { "value": "15+", "label": "Anos de Experiência" },
+      { "value": "98%", "label": "Casos de Sucesso" }
+    ],
+    "signature": {
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Signature_sample.svg/1200px-Signature_sample.svg.png",
+        "name": "Dr. Newton Albuquerque - Sócio Fundador"
+    }
+  },
+  "practice_areas": {
+    "title": "Áreas de Atuação",
+    "subtitle": "Atuação abrangente e especializada para atender às suas necessidades jurídicas.",
+    "cards": [
+      { "icon": "scale", "title": "Direito Civil", "description": "Resolução de conflitos contratuais, responsabilidade civil, e proteção patrimonial com foco na melhor solução para o cliente." },
+      { "icon": "briefcase", "title": "Direito Empresarial", "description": "Consultoria jurídica para empresas, fusões e aquisições, compliance e gestão de riscos corporativos." },
+      { "icon": "users", "title": "Direito de Família", "description": "Atuação sensível e discreta em divórcios, guarda, partilha de bens e planejamento sucessório." }
+    ]
+  },
+  "why_choose_us": {
+    "title": "Por que escolher nosso escritório?",
+    "image": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    "items": [
+      { "icon": "shield-check", "title": "Transparência Total", "description": "Mantemos você informado sobre cada etapa do processo com clareza e honestidade." },
+      { "icon": "clock", "title": "Agilidade", "description": "Atuação proativa para garantir a resolução mais rápida possível para o seu caso." },
+      { "icon": "award", "title": "Excelência Técnica", "description": "Equipe altamente qualificada e em constante atualização jurídica." }
+    ]
+  },
+  "contact": {
+    "title": "Informações de Contato",
+    "subtitle": "Preencha o formulário e entraremos em contato em até 24 horas.",
+    "phone": "(11) 99999-9999",
+    "email": "newtonalbuquerqueadvocacia@gmail.com",
+    "address": "Rua Dra. Wanda Sidou, 638, Cajazeiras - Fortaleza - CE. CEP: 60.964-455",
+    "social": [
+        { "icon": "linkedin", "href": "#" },
+        { "icon": "instagram", "href": "https://www.instagram.com/abmarcasepatentes/" },
+        { "icon": "facebook", "href": "#" }
+    ]
+  },
+  "footer": {
+    "copyright": "© 2026 Todos os direitos reservados.",
+    "links": [
+        { "text": "Política de Privacidade", "href": "#" },
+        { "text": "Termos de Uso", "href": "#" }
+    ]
+  },
+  "whatsapp": {
+    "phone": "5511999999999",
+    "message": "Olá, gostaria de agendar uma consulta."
+  }
+}

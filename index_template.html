@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ meta.title }}</title>
+    <link rel="icon" type="image/svg+xml" href="{{ meta.favicon }}">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Inter"', 'sans-serif'],
+                    },
+                    colors: {
+                        gold: {
+                            400: '#dbb42c',
+                            500: '#d19d14',
+                            600: '#b47e0e',
+                        },
+                        navy: {
+                            900: '#0f172a',
+                            950: '#020617',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        .hero-bg {
+            background-color: #0f172a;
+            background-image: radial-gradient(circle at top, #1e293b 0%, #0f172a 100%);
+        }
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            will-change: opacity, visibility;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: none;
+        }
+    </style>
+</head>
+<body class="font-sans text-slate-700 bg-slate-50 antialiased">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-transparent text-white py-4">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="#" class="text-2xl font-serif font-bold tracking-wide flex items-center gap-2">
+                        <img src="{{ navbar.logo_image }}" alt="Logo" class="h-8 w-auto">
+                        <span><span id="nav-logo-text-1">{{ navbar.logo_text_1 }}</span> <span id="nav-logo-text-2" class="text-gold-500">{{ navbar.logo_text_2 }}</span></span>
+                    </a>
+            
+            <!-- Desktop Menu -->
+            <div id="nav-links" class="hidden md:flex items-center space-x-8">
+                {% for link in navbar.links %}
+                <a href="{{ link.href }}" class="hover:text-gold-400 transition-colors text-sm uppercase tracking-widest font-medium">{{ link.text }}</a>
+                {% endfor %}
+                <a id="nav-cta" href="{{ navbar.cta.href }}" class="px-6 py-2 border border-gold-500 text-gold-500 hover:bg-gold-500 hover:text-white transition-all duration-300 rounded uppercase text-xs font-bold tracking-widest">
+                    {{ navbar.cta.text }}
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none">
+                <i data-lucide="menu" class="w-8 h-8"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="fixed inset-0 bg-navy-950/95 transform translate-x-full transition-transform duration-300 md:hidden flex flex-col justify-center items-center space-y-8 z-40">
+            <button id="close-menu-btn" class="absolute top-6 right-6 text-white">
+                <i data-lucide="x" class="w-8 h-8"></i>
+            </button>
+            {% for link in navbar.links %}
+            <a href="{{ link.href }}" class="mobile-link text-2xl font-serif hover:text-gold-500 transition-colors">{{ link.text }}</a>
+            {% endfor %}
+            <a href="{{ navbar.cta.href }}" class="mobile-link text-2xl font-serif text-gold-500">{{ navbar.cta.text }}</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg h-screen flex items-center justify-center text-center px-4 relative">
+        <div class="max-w-4xl mx-auto space-y-6 animate-fade-up">
+            <p id="hero-subtitle" class="text-gold-400 uppercase tracking-[0.2em] text-sm md:text-base font-semibold">{{ hero.subtitle }}</p>
+            <h1 class="text-5xl md:text-7xl font-serif font-bold text-white leading-tight">
+                <span id="hero-title-1">{{ hero.title_part1 }}</span> <span id="hero-title-2" class="text-gold-500 italic">{{ hero.title_part2 }}</span>
+            </h1>
+            <p id="hero-desc" class="text-slate-300 text-lg md:text-xl max-w-2xl mx-auto font-light">
+                {{ hero.description }}
+            </p>
+            <div class="pt-8 flex flex-col md:flex-row justify-center gap-4">
+                <a id="hero-cta-primary" href="{{ hero.cta_primary.href }}" class="px-8 py-4 bg-gold-600 hover:bg-gold-500 text-white font-bold rounded shadow-lg hover:shadow-gold-500/20 transition-all duration-300 uppercase tracking-wider">
+                    {{ hero.cta_primary.text }}
+                </a>
+                <a id="hero-cta-secondary" href="{{ hero.cta_secondary.href }}" class="px-8 py-4 bg-transparent border border-white text-white hover:bg-white hover:text-navy-900 font-bold rounded transition-all duration-300 uppercase tracking-wider">
+                    {{ hero.cta_secondary.text }}
+                </a>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#about" class="text-white opacity-70 hover:opacity-100">
+                <i data-lucide="chevron-down" class="w-8 h-8"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 md:py-32 bg-white fade-in-section">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center gap-16">
+                <div class="w-full md:w-1/2 relative">
+                    <div class="absolute top-4 -left-4 w-full h-full border-2 border-gold-500 z-0"></div>
+                    <img id="about-img" src="{{ about.image }}" alt="Advogado" class="relative z-10 w-full shadow-2xl rounded-sm transition-all duration-500">
+                </div>
+                <div class="w-full md:w-1/2 space-y-6">
+                    <h2 id="about-title" class="text-4xl font-serif font-bold text-navy-900">{{ about.title }}</h2>
+                    <div class="w-20 h-1 bg-gold-500"></div>
+                    <p id="about-text-1" class="text-slate-600 text-lg leading-relaxed">
+                        {{ about.text_1 | safe }}
+                    </p>
+                    <p id="about-text-2" class="text-slate-600 text-lg leading-relaxed">
+                        {{ about.text_2 | safe }}
+                    </p>
+                    
+                    <div id="about-stats" class="grid grid-cols-2 gap-8 pt-6">
+                        {% for stat in about.stats %}
+                        <div>
+                            <h3 class="text-4xl font-serif font-bold text-gold-600">{{ stat.value }}</h3>
+                            <p class="text-slate-500 uppercase text-sm tracking-wider">{{ stat.label }}</p>
+                        </div>
+                        {% endfor %}
+                    </div>
+
+                    <div class="pt-6">
+                        <img id="about-sig-img" src="{{ about.signature.image }}" alt="Assinatura" class="h-12 opacity-60">
+                        <p id="about-sig-name" class="text-slate-400 text-sm mt-2">{{ about.signature.name }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Practice Areas -->
+    <section id="practice" class="py-20 md:py-32 bg-slate-50 fade-in-section">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <h2 id="practice-title" class="text-4xl font-serif font-bold text-navy-900">{{ practice_areas.title }}</h2>
+                <div class="w-20 h-1 bg-gold-500 mx-auto"></div>
+                <p id="practice-subtitle" class="text-slate-600">{{ practice_areas.subtitle }}</p>
+            </div>
+
+            <div id="practice-cards" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {% for card in practice_areas.cards %}
+                <div class="bg-white p-8 rounded shadow-sm hover:shadow-xl transition-shadow duration-300 border-t-4 border-transparent hover:border-gold-500 group">
+                    <div class="bg-slate-100 w-16 h-16 rounded-full flex items-center justify-center mb-6 group-hover:bg-gold-500 transition-colors duration-300">
+                        <i data-lucide="{{ card.icon }}" class="w-8 h-8 text-navy-900 group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="text-xl font-serif font-bold text-navy-900 mb-4">{{ card.title }}</h3>
+                    <p class="text-slate-600 mb-6">{{ card.description }}</p>
+                    <a href="#" class="text-gold-600 font-semibold text-sm uppercase tracking-wider hover:text-navy-900 transition-colors flex items-center gap-2">
+                        Saiba Mais <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="py-20 bg-navy-900 text-white fade-in-section">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                <div class="space-y-8">
+                    <h2 class="text-4xl font-serif font-bold">{{ why_choose_us.title }}</h2>
+                    <div id="why-items" class="space-y-6">
+                        {% for item in why_choose_us['items'] %}
+                        <div class="flex gap-4">
+                            <div class="mt-1">
+                                <i data-lucide="{{ item.icon }}" class="w-8 h-8 text-gold-500"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">{{ item.title }}</h3>
+                                <p class="text-slate-400">{{ item.description }}</p>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="relative">
+                    <img id="why-img" src="{{ why_choose_us.image }}" alt="Meeting" class="rounded shadow-2xl border border-slate-700">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 md:py-32 bg-white fade-in-section">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto bg-slate-50 rounded-lg shadow-xl overflow-hidden flex flex-col md:flex-row">
+                <div class="w-full md:w-5/12 bg-navy-900 text-white p-8 flex flex-col justify-between">
+                    <div>
+                        <h3 id="contact-title" class="text-2xl font-serif font-bold mb-6">{{ contact.title }}</h3>
+                        <p id="contact-subtitle" class="text-slate-400 mb-8">{{ contact.subtitle }}</p>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start gap-4">
+                                <i data-lucide="phone" class="w-5 h-5 text-gold-500 mt-1 shrink-0"></i>
+                                <span id="contact-phone" class="break-all">{{ contact.phone }}</span>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <i data-lucide="mail" class="w-5 h-5 text-gold-500 mt-1 shrink-0"></i>
+                                <span id="contact-email" class="break-all">{{ contact.email }}</span>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <i data-lucide="map-pin" class="w-5 h-5 text-gold-500 mt-1 shrink-0"></i>
+                                <span id="contact-address">{{ contact.address }}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-12">
+                        <div id="contact-social" class="flex gap-4">
+                            {% for social in contact.social %}
+                            <a href="{{ social.href }}" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-gold-500 transition-colors">
+                                <i data-lucide="{{ social.icon }}" class="w-5 h-5"></i>
+                            </a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="w-full md:w-7/12 p-10">
+                    <form class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 mb-2">Nome</label>
+                                <input type="text" class="w-full px-4 py-2 border border-slate-300 rounded focus:ring-2 focus:ring-gold-500 focus:border-transparent outline-none transition-all" placeholder="Seu nome">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 mb-2">Telefone</label>
+                                <input type="tel" class="w-full px-4 py-2 border border-slate-300 rounded focus:ring-2 focus:ring-gold-500 focus:border-transparent outline-none transition-all" placeholder="(00) 00000-0000">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-2">E-mail</label>
+                            <input type="email" class="w-full px-4 py-2 border border-slate-300 rounded focus:ring-2 focus:ring-gold-500 focus:border-transparent outline-none transition-all" placeholder="seu@email.com">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-2">Mensagem</label>
+                            <textarea rows="4" class="w-full px-4 py-2 border border-slate-300 rounded focus:ring-2 focus:ring-gold-500 focus:border-transparent outline-none transition-all" placeholder="Como podemos ajudar?"></textarea>
+                        </div>
+                        <button type="button" class="w-full bg-gold-600 text-white font-bold py-3 rounded hover:bg-gold-700 transition-colors uppercase tracking-wider shadow-md">
+                            Enviar Mensagem
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-navy-950 text-white py-12 border-t border-slate-800">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <a href="#" class="text-2xl font-serif font-bold tracking-wide flex items-center gap-2">
+                        <img src="{{ navbar.logo_image }}" alt="Logo" class="h-8 w-auto">
+                        <span><span id="footer-logo-text-1">{{ navbar.logo_text_1 }}</span> <span id="footer-logo-text-2" class="text-gold-500">{{ navbar.logo_text_2 }}</span></span>
+                    </a>
+                    <p id="footer-copyright" class="text-slate-500 text-sm mt-2">{{ footer.copyright }}</p>
+                </div>
+                <div id="footer-links" class="flex space-x-8">
+                    {% for link in footer.links %}
+                    <a href="{{ link.href }}" class="text-slate-400 hover:text-white text-sm">{{ link.text }}</a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a id="whatsapp-link" href="https://wa.me/{{ whatsapp.phone }}?text={{ whatsapp.message | urlencode }}" target="_blank" class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:scale-110 transition-transform duration-300 flex items-center justify-center group" aria-label="Fale conosco no WhatsApp">
+        <svg viewBox="0 0 24 24" class="w-8 h-8 fill-current" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.008-.57-.008-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.767-.721 2.016-1.417.248-.696.248-1.29.173-1.417-.074-.125-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.07 0C5.537 0 .181 5.303.177 11.791c0 2.085.543 4.104 1.578 5.887L.006 24l6.408-1.68a11.865 11.865 0 005.658 1.44h.005c6.554 0 11.99-5.355 11.993-11.838 0-3.155-1.241-6.156-3.481-8.382z"/>
+        </svg>
+    </a>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
