@@ -30,11 +30,7 @@
     "stats": [
       { "value": "15+", "label": "Anos de Experiência" },
       { "value": "98%", "label": "Casos de Sucesso" }
-    ],
-    "signature": {
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Signature_sample.svg/1200px-Signature_sample.svg.png",
-        "name": "Dr. Newton Albuquerque - Sócio Fundador"
-    }
+    ]
   },
   "practice_areas": {
     "title": "Áreas de Atuação",
