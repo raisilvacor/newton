@@ -36,9 +36,9 @@
     "title": "Áreas de Atuação",
     "subtitle": "Atuação abrangente e especializada para atender às suas necessidades jurídicas.",
     "cards": [
-      { "icon": "scale", "title": "Direito Civil", "description": "Resolução de conflitos contratuais, responsabilidade civil, e proteção patrimonial com foco na melhor solução para o cliente." },
-      { "icon": "briefcase", "title": "Direito Empresarial", "description": "Consultoria jurídica para empresas, fusões e aquisições, compliance e gestão de riscos corporativos." },
-      { "icon": "users", "title": "Direito de Família", "description": "Atuação sensível e discreta em divórcios, guarda, partilha de bens e planejamento sucessório." }
+      { "icon": "shield-check", "title": "Registro de Marcas", "description": "Proteção exclusiva para sua marca em todo o território nacional, garantindo a identidade e o valor do seu negócio." },
+      { "icon": "file-text", "title": "Patentes e Invenções", "description": "Registro de patentes de invenção e modelos de utilidade para proteger suas criações e inovações tecnológicas." },
+      { "icon": "lock", "title": "Propriedade Intelectual", "description": "Consultoria completa em direitos autorais, segredos de negócio e licenciamento de ativos intelectuais." }
     ]
   },
   "why_choose_us": {
