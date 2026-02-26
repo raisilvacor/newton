@@ -25,11 +25,10 @@
   "about": {
     "title": "Sobre o Escritório",
     "image": "img/newron.png",
-    "text_1": "Com mais de 15 anos de experiência, a <strong>Newton Albuquerque</strong> se consolidou como referência em advocacia estratégica. Nossa missão é oferecer soluções jurídicas inovadoras e personalizadas para cada cliente.",
-    "text_2": "Acreditamos que cada caso é único e merece uma atenção detalhada. Nossa equipe multidisciplinar atua com rigor técnico e ética inegociável para garantir a proteção dos seus interesses.",
+    "text_1": "Com mais de 28 anos de atuação, a <strong>Newton Albuquerque</strong> consolidou-se como referência na proteção de ativos intelectuais. Nossa missão é assegurar a exclusividade e o valor das suas marcas e patentes por meio de estratégias jurídicas robustas e personalizadas.",
+    "text_2": "Entendemos que a sua marca é o seu maior patrimônio. Por isso, nossa equipe especializada atua com rigor técnico e ética inegociável junto ao INPI, garantindo que suas inovações e identidades estejam plenamente protegidas contra o uso indevido.",
     "stats": [
-      { "value": "15+", "label": "Anos de Experiência" },
-      { "value": "98%", "label": "Casos de Sucesso" }
+      { "value": "28+", "label": "Anos de Experiência" }
     ]
   },
   "practice_areas": {
