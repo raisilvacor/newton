@@ -1,0 +1,7 @@
+services:
+  - type: static
+    name: newton-albuquerque
+    env: static
+    buildCommand: pip install -r requirements.txt && python build.py
+    publishPath: .
+    autoDeploy: true
